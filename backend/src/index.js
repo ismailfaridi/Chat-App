@@ -5,7 +5,10 @@ import authRoutes from "./routes/auth.route.js";
 import dotenv from "dotenv";
 dotenv.config();
 const PORT = process.env.PORT;
-import { connectDB } from "./lib/db.js"
+import { connectDB } from "./lib/db.js";
+// parse jwt cookies, so we can grab the values out of it.
+import cookieParser from "cookie-parser";
+app.use(cookieParser());
 
 // Allow to extract JSON data from request body
 app.use(express.json());
