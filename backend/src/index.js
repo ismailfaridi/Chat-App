@@ -9,10 +9,16 @@ const PORT = process.env.PORT;
 import { connectDB } from "./lib/db.js";
 // parse jwt cookies, so we can grab the values out of it.
 import cookieParser from "cookie-parser";
-app.use(cookieParser());
+// CORS (Cross-Origin Resource Sharing) middleware
+import cors from "cors";
 
 // Allow to extract JSON data from request body
 app.use(express.json());
+app.use(cookieParser());
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true // allow cookies or auth headers to be sent with requests
+}));
 
 // Auth Middleware
 app.use("/api/auth", authRoutes);
