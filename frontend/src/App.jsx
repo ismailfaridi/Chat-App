@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom"; // prevent page reload
 // Component imports
-import { Navbar } from "./components/Navbar";
+import Navbar from "./components/Navbar";
 // Pages imports
 import HomePage from "./pages/HomePage";
 import SignUpPage from "./pages/SignUpPage";
@@ -12,6 +12,8 @@ import { useAuthStore } from "./store/useAuthStore";
 import { useEffect } from "react";
 // Loader icon import
 import { Loader } from "lucide-react";
+// React Hot Toast
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
@@ -36,7 +38,7 @@ const App = () => {
     <div>
       <Navbar />
 
-      {/* Client-side routing */}
+      {/* Client-Side Routing */}
       <Routes>
         <Route path="/"         element={authUser  ? <HomePage />    : <Navigate to="/login" />} />
         <Route path="/signup"   element={!authUser ? <SignUpPage />  : <Navigate to="/" />} />
@@ -44,6 +46,9 @@ const App = () => {
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/profile"  element={authUser  ? <ProfilePage /> : <Navigate to="/login" />} />
       </Routes>
+
+      {/* React Hot Toast */}
+      <Toaster />
     </div>
   )
 }
