@@ -1,4 +1,4 @@
-// zustand is used for global state management.
+// Zustand is used for global state management. It's used to create custom hooks that manage state.
 import { create } from "zustand";
 import { axiosInstance } from "../lib/axios.js";
 
@@ -12,13 +12,17 @@ export const useAuthStore = create((set) => ({
 
     checkAuth: async () => {
         try {
-            const res = await axiosInstance.get("/auth/check");
+            const res = await axiosInstance.get("/auth/check"); // axios config: api/auth/check
             set({ authUser: res.data });            
         } catch (error) {
             console.log("Error in checkAuth:", error);
             set({ authUser: null });
-        } finally {
+        } finally { // run regardless of success or failure
             set({ isCheckingAuth: false });
         }
+    },
+
+    signup: async (data) => {
+
     }
 }));

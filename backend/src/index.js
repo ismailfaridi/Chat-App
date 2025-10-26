@@ -9,7 +9,7 @@ const PORT = process.env.PORT;
 import { connectDB } from "./lib/db.js";
 // parse jwt cookies, so we can grab the values out of it.
 import cookieParser from "cookie-parser";
-// CORS (Cross-Origin Resource Sharing) middleware
+// CORS (Cross-Origin Resource Sharing) middleware allow access to resources from different origins.
 import cors from "cors";
 
 // Allow to extract JSON data from request body
