@@ -9,6 +9,8 @@ import SettingsPage from "./pages/SettingsPage";
 import ProfilePage from "./pages/ProfilePage";
 // Zustand store import
 import { useAuthStore } from "./store/useAuthStore";
+import { useThemeStore } from "./store/useThemeStore";
+// React imports
 import { useEffect } from "react";
 // Loader icon import
 import { Loader } from "lucide-react";
@@ -31,10 +33,13 @@ const App = () => {
         <Loader className="size-10 animate-spin" />
       </div>
     )
-  }  
+  }
+
+  // Theme
+  const { theme } = useThemeStore();
 
   return (
-    <div>
+    <div data-theme={theme}>
       <Navbar />
 
       {/* Client-Side Routing */}
