@@ -24,15 +24,14 @@ const App = () => {
 
   console.log({ authUser });
 
-  // Loading state while checking authentication
+  // Loading state while checking authentication - run when you refresh the page
   if (isCheckingAuth && !authUser) {
     return (
       <div className="flex items-center justify-center h-screen">
         <Loader className="size-10 animate-spin" />
       </div>
     )
-  }
-  
+  }  
 
   return (
     <div>
