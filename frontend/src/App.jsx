@@ -19,6 +19,8 @@ import { Toaster } from "react-hot-toast";
 
 const App = () => {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
+  // Theme
+  const { theme } = useThemeStore();
 
   useEffect(() => { // run when something changes
     checkAuth();
@@ -34,9 +36,6 @@ const App = () => {
       </div>
     )
   }
-
-  // Theme
-  const { theme } = useThemeStore();
 
   return (
     <div data-theme={theme}>
