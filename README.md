@@ -1,5 +1,5 @@
 # Full Stack Realtime Chat App  
-This project is a modern real-time chat application built to allow users to engage in one-on-one or group conversations instantly. It features user authentication, live messaging via WebSockets, and a responsive UI for desktop and mobile.  
+This project is a modern real-time chat application built to allow users to engage in one-on-one conversations instantly. It features user authentication, live messaging via WebSockets, and a responsive UI for desktop and mobile.  
 The architecture is split into a **Backend** (server + WebSocket logic) and a **Frontend** (client application) so that each layer remains modular and maintainable.
 
 ## 🌐 Live Demo
