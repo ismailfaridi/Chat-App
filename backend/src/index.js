@@ -2,10 +2,6 @@ import express from "express";
 // const app = express();
 import authRoutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js";
-// .env file
-import dotenv from "dotenv";
-dotenv.config();
-const PORT = process.env.PORT;
 import { connectDB } from "./lib/db.js";
 // parse jwt cookies, so we can grab the values out of it.
 import cookieParser from "cookie-parser";
@@ -13,6 +9,10 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 // Socket.io Server
 import { app, server } from "./lib/socket.js";
+// .env file
+import dotenv from "dotenv";
+dotenv.config();
+const PORT = process.env.PORT;
 // path to work with file and directory paths
 import path from "path";
 const __dirname = path.resolve(); // return absolute path of cwd
@@ -35,8 +35,8 @@ if (process.env.NODE_ENV === "production") {
 
     // Other routes then above routes middleware
     app.get("/*", (req, res) => {
-        res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
-    })
+        res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+    });
 }
 
 // app.listen(PORT, () => {
