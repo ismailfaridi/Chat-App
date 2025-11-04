@@ -13,6 +13,9 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 // Socket.io Server
 import { app, server } from "./lib/socket.js";
+// path to work with file and directory paths
+import path from "path";
+const __dirname = path.resolve(); // return absolute path of cwd
 
 // Allow to extract JSON data from request body
 app.use(express.json());
@@ -22,10 +25,19 @@ app.use(cors({
     credentials: true // allow cookies or auth headers to be sent with requests
 }));
 
-// Auth Middleware
+// Routes Middleware
 app.use("/api/auth", authRoutes);
-
 app.use("/api/messages", messageRoutes);
+
+// If we are in production, then make the 'frontend >> dist' folder to be as static assets.
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+    // Other routes then above routes middleware
+    app.get("*", (req, res) => {
+        res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+    })
+}
 
 // app.listen(PORT, () => {
 server.listen(PORT, () => {
