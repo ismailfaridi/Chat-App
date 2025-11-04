@@ -12,14 +12,13 @@ import { useAuthStore } from "./store/useAuthStore";
 import { useThemeStore } from "./store/useThemeStore";
 // React imports
 import { useEffect } from "react";
-// Loader icon import
+// Icon import
 import { Loader } from "lucide-react";
-// React Hot Toast
+// React Hot Toast for temporary notifications
 import { Toaster } from "react-hot-toast";
 
 const App = () => {
   const { authUser, isCheckingAuth, onlineUsers, checkAuth } = useAuthStore();
-  // Theme
   const { theme } = useThemeStore();
 
   console.log({ onlineUsers });
@@ -30,7 +29,7 @@ const App = () => {
 
   console.log({ authUser });
 
-  // Loading state while checking authentication - run when you refresh the page
+  // Loading state while checking authentication - run when user refresh the page.
   if (isCheckingAuth && !authUser) {
     return (
       <div className="flex items-center justify-center h-screen">
@@ -58,4 +57,4 @@ const App = () => {
   )
 }
 
-export default App
+export default App;
