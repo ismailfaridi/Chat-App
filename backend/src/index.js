@@ -33,9 +33,9 @@ app.use("/api/messages", messageRoutes);
 if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-    // Other routes then above routes middleware
-    app.get("/*", (req, res) => {
-        res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+    // All routes handled by frontend (SPA)
+    app.get("*", (req, res) => {
+        res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
     });
 }
 
