@@ -2,6 +2,9 @@
 This project is a modern real-time chat application built to allow users to engage in one-on-one or group conversations instantly. It features user authentication, live messaging via WebSockets, and a responsive UI for desktop and mobile.  
 The architecture is split into a **Backend** (server + WebSocket logic) and a **Frontend** (client application) so that each layer remains modular and maintainable.
 
+## 🌐 Live Demo
+Check out the live application here: [Chat App](https://chat-app-rcqi.onrender.com/)
+
 ## 🚀 Features  
 - Secure user sign up, login and authentication (via JWT)  
 - Real-time message delivery (sending and receiving messages instantly via Socket.io)  
